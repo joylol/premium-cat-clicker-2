@@ -1,2 +1,3 @@
 # premium-cat-clicker-2
-Cat clicker using jQuery and MOV
+Rewrote premium-cat-clicker by using model octopus view organization of Javascript.
+
