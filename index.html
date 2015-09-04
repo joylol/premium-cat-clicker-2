@@ -3,14 +3,14 @@
 	<head>
 		<meta charset="utf-8"
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Premium Cat Clicker</title>
+		<title>Premium Cat Clicker 2</title>
 		<link rel="stylesheet" href="style.css">
 	</head>
 	<body>
 		<div class="grid">
 			<div class="row">
 				<div class="col-12" id="header">
-					<h1>Premium Cat Clicker</h1>
+					<h1>Premium Cat Clicker 2</h1>
 		        </div>
 		    </div>
 		    <div class="row">
@@ -18,14 +18,15 @@
 		    		<h2>Cute Cats</h2>
 		    	</div>
 		    	<div class="col-9" id="catClicker">
-		    		<h3>Choose a cute cat on the left and see its photo below. Click on the Cute Cat Photo to see the Clicker Count rise.</h3>
+		    		<h3>Choose a cute cat on the left and see its photo below. Love the cute cat? Click on the Cute Cat Photo to see its Clicker Count rise.</h3>
 		    		<div id="selectedCatPhoto">
-		    			<h1>Waiting for a Cute Cat Photo...</h1>
+		    			<h1 id="catName"></h1>
+		    			<img id="catImage">
+		    			<h3 id="clickCountNum"></h3>
 		    		</div>
 		    	</div>
 		    </div>	
 		</div>
+		<script src="main.js"></script>
 	</body>
 </html>
-<script src="jQuery.js"></script>
-<script src="main.js"></script>
