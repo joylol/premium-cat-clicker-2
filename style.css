@@ -36,7 +36,7 @@
 #header {
 	background-color: rgba(137, 163, 167, 0.76);
 }
-#catList {
+#navBar {
 	padding: 1em;
 	background-color: rgba(137, 163, 167, 0.65);
 }
@@ -53,4 +53,24 @@ button {
 	background: none;
 	border: none;
 	font-size: 1.5em;
+}
+
+#adminArea {
+	display:none;
+}
+
+#adminButton {
+	width: 50%;
+	background-color: rgb(146, 167, 156);
+	margin-top: 1em;
+}
+
+#adminAreaButtons {
+	display: inline-flex;
+}
+
+#cancel, #change {
+	width: 50%;
+	background-color: rgb(146, 167, 156);
+	margin: 1em 0.5em;
 }

@@ -14,8 +14,13 @@
 		        </div>
 		    </div>
 		    <div class="row">
-		    	<div class="col-3" id="catList">
-		    		<h2>Cute Cats</h2>
+		    	<div class="col-3" id="navBar">
+		    		<div id="catList">
+		    			<h2>Cute Cats</h2>
+		    		</div>
+		    		<div>
+		    			<button id="adminButton">Admin</button>
+		    		</div>
 		    	</div>
 		    	<div class="col-9" id="catClicker">
 		    		<h3>Choose a cute cat on the left and see its photo below. Love the cute cat? Click on the Cute Cat Photo to see its Clicker Count rise.</h3>
@@ -23,6 +28,20 @@
 		    			<h1 id="catName"></h1>
 		    			<img id="catImage">
 		    			<h3 id="clickCountNum"></h3>
+		    		</div>
+		    		<div id="adminArea">
+		    			<form id="catForm">
+		    				Cat Name:
+		    				<input id="catNameContent"><br><br>
+		    				Cat SRC:
+		    				<input id="catSRC"><br><br>
+		    				Cat Clicks:
+		    				<input id="catClicks"><br><br>
+		    				<div id="adminAreaButtons">
+		    					<button id="cancel">Cancel</button>
+		    					<button id="change">Change</button>
+	    					</div>
+		    			</form>
 		    		</div>
 		    	</div>
 		    </div>	
