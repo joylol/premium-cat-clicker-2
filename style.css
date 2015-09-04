@@ -1,0 +1,56 @@
+* {
+	border: 1px;
+	text-align: center;
+}
+
+* {
+	-webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.grid {
+	margin: 0 auto;
+	max-width: 1200px;
+	width: 100%;
+}
+
+.row {
+	width: 100%;
+	display: flex;
+}
+
+.col-3 {
+	width: 25%;
+}
+
+.col-9 {
+	width: 75%;
+}
+
+.col-12 {
+	width: 100%;
+}
+
+#header {
+	background-color: rgba(137, 163, 167, 0.76);
+}
+#catList {
+	padding: 1em;
+	background-color: rgba(137, 163, 167, 0.65);
+}
+
+#catClicker {
+	padding: 1em;
+	background-color: rgba(137, 163, 167, 0.46);
+}
+
+button {
+	display: block;
+	width: 100%;
+	margin: 0 auto;
+	background: none;
+	border: none;
+	font-size: 1.5em;
+}
