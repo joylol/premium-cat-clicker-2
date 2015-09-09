@@ -56,7 +56,7 @@ button {
 }
 
 #adminArea {
-	display:none;
+	display: none;
 }
 
 #adminButton {
@@ -69,7 +69,7 @@ button {
 	display: inline-flex;
 }
 
-#cancel, #change {
+#cancelBtn, #changeBtn {
 	width: 50%;
 	background-color: rgb(146, 167, 156);
 	margin: 1em 0.5em;

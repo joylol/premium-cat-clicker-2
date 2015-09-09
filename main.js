@@ -1,5 +1,6 @@
 var model = {
 	currentCat: null,
+	adminViewVisible: false,
 	cats: [
 		{
 			name: 'KitKat',
@@ -33,6 +34,7 @@ var octopus = {
 	init: function() {
 		listView.init();
 		imageView.init();
+		adminView.init();
 	},
     getCats: function() {
     	return model.cats;
@@ -46,8 +48,26 @@ var octopus = {
     addClickCount: function() {
     	model.currentCat.clickCount ++;
     	imageView.render();
-    }
+    },
+    openAdminView: function() {
+    	if(model.currentCat == null) {
+    		adminView.render();
+    	}
+    	else if(model.adminViewVisible == false) {
+    		model.adminViewVisible = true;
+    		adminView.render();
+    	}
+    	else {
+    		model.adminViewVisible = false;
+    		this.closeAdminView();
+    	}
+    },
+    closeAdminView: function() {
+    	adminView.hide();
+    },
+    updateCat: function() {
 
+    }
 };
 
 var listView = {
@@ -89,5 +109,39 @@ var imageView = {
 		this.clickCountElem.textContent = catToBeRendered.clickCount;
 	}
 };
+
+var adminView = {
+	init: function() {
+		this.adminButtonElem = document.getElementById('adminButton');
+		this.adminArea = document.getElementById('adminArea');
+		this.catNameContent = document.getElementById('catNameContent');
+		this.catSRC = document.getElementById('catSRC');
+		this.catClicks = document.getElementById('catClicks');
+		this.cancelBtn = document.getElementById('cancelBtn');
+		this.changeBtn = document.getElementById('changeBtn');
+
+		this.adminButtonElem.addEventListener('click', function() {
+			octopus.openAdminView();
+		});
+		this.cancelBtn.addEventListener('click', function() {
+			octopus.openAdminView();
+		});
+	},
+	render: function() {
+		var inputValue = octopus.getCurrentCat();
+		if(inputValue == null) {
+			alert('Please select a cat to view the Admin Area.');
+		}
+		else {
+			this.catNameContent.value = inputValue.name;
+			this.catSRC.value = inputValue.imageSRC;
+			this.catClicks.value = inputValue.clickCount;
+			this.adminArea.style.display = 'block';
+		}
+	},
+	hide: function() {
+		this.adminArea.style.display = 'none';
+	}
+}
 
 octopus.init(); 
