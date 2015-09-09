@@ -48,25 +48,31 @@ var octopus = {
     addClickCount: function() {
     	model.currentCat.clickCount ++;
     	imageView.render();
+    	if(model.adminViewVisible) {
+    		adminView.render();
+    	}
+    },
+    adminShow: function() {
+    	return model.adminViewVisible;
     },
     openAdminView: function() {
-    	if(model.currentCat == null) {
-    		adminView.render();
-    	}
-    	else if(model.adminViewVisible == false) {
-    		model.adminViewVisible = true;
-    		adminView.render();
-    	}
-    	else {
-    		model.adminViewVisible = false;
-    		this.closeAdminView();
-    	}
+    	model.adminViewVisible = true;
+    	adminView.render();
     },
     closeAdminView: function() {
+    	model.adminViewVisible = false;
     	adminView.hide();
     },
     updateCat: function() {
-
+    	this.catNameContent = document.getElementById('catNameContent').value;
+		this.catSRC = document.getElementById('catSRC').value;
+		this.catClicks = document.getElementById('catClicks').value;
+    	model.currentCat.name = this.catNameContent;
+    	model.currentCat.imageSRC = this.catSRC;
+    	model.currentCat.clickCount = this.catClicks;
+    	this.closeAdminView();
+    	imageView.render();
+    	listView.render();
     }
 };
 
@@ -76,6 +82,7 @@ var listView = {
 		this.render();
 	},
 	render: function() {
+		this.catListElem.innerHTML = '';
 		var i, btn, cat;
 		var cats = octopus.getCats();
 		for(i = 0; i < cats.length; i++) {
@@ -86,6 +93,10 @@ var listView = {
 				return function() {
 					octopus.setCurrentCat(catCopy);
 					imageView.render();
+					var adminShow = octopus.adminShow();
+					if(adminShow) {
+						adminView.render();
+					}
 				};
 			})(cat));
 			this.catListElem.appendChild(btn);
@@ -114,17 +125,20 @@ var adminView = {
 	init: function() {
 		this.adminButtonElem = document.getElementById('adminButton');
 		this.adminArea = document.getElementById('adminArea');
+		this.cancelBtn = document.getElementById('cancelBtn');
+		this.changeBtn = document.getElementById('changeBtn');
 		this.catNameContent = document.getElementById('catNameContent');
 		this.catSRC = document.getElementById('catSRC');
 		this.catClicks = document.getElementById('catClicks');
-		this.cancelBtn = document.getElementById('cancelBtn');
-		this.changeBtn = document.getElementById('changeBtn');
 
 		this.adminButtonElem.addEventListener('click', function() {
 			octopus.openAdminView();
 		});
 		this.cancelBtn.addEventListener('click', function() {
-			octopus.openAdminView();
+			octopus.closeAdminView();
+		});
+		this.changeBtn.addEventListener('click', function() {
+			octopus.updateCat();
 		});
 	},
 	render: function() {
@@ -142,6 +156,6 @@ var adminView = {
 	hide: function() {
 		this.adminArea.style.display = 'none';
 	}
-}
+};
 
 octopus.init(); 
